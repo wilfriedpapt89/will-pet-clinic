@@ -1,5 +1,7 @@
 package com.willpapt.willpetclinic;
 
+import com.willpapt.willpetclinic.services.PetService;
+import com.willpapt.willpetclinic.services.PetTypeService;
 import com.willpapt.willpetclinic.services.map.OwnerServiceMap;
 import com.willpapt.willpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.SpringApplication;
@@ -14,8 +16,8 @@ public class WillPetClinicApplication {
     }
 
     @Bean
-    OwnerServiceMap ownerServiceMap(){
-        return new OwnerServiceMap();
+    OwnerServiceMap ownerServiceMap(PetTypeService petTypeService,PetService petService){
+        return new OwnerServiceMap(petTypeService, petService);
     }
 
     @Bean
