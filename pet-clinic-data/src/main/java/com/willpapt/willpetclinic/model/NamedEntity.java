@@ -1,5 +1,8 @@
 package com.willpapt.willpetclinic.model;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class NamedEntity extends BaseEntity {
 
     private String name;

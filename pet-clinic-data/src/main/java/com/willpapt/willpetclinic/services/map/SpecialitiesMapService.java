@@ -1,11 +1,13 @@
 package com.willpapt.willpetclinic.services.map;
 
 import com.willpapt.willpetclinic.model.Speciality;
-import com.willpapt.willpetclinic.services.SpecialitiesService;
+import com.willpapt.willpetclinic.services.SpecialtysService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
+@Service
+public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialtysService {
 
     @Override
     public Set<Speciality> findAll() {
@@ -24,7 +26,7 @@ public class SpecialitiesMapService extends AbstractMapService<Speciality, Long>
 
     @Override
     public Speciality save(Speciality object) {
-        return save(object);
+        return super.save(object);
     }
 
     @Override
