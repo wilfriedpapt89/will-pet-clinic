@@ -3,7 +3,7 @@ package com.willpapt.willpetclinic;
 import com.willpapt.willpetclinic.services.PetService;
 import com.willpapt.willpetclinic.services.PetTypeService;
 import com.willpapt.willpetclinic.services.map.OwnerServiceMap;
-import com.willpapt.willpetclinic.services.map.VetServiceMap;
+import com.willpapt.willpetclinic.services.map.VetMapService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +21,8 @@ public class WillPetClinicApplication {
     }
 
     @Bean
-    VetServiceMap vetServiceMap(){
-        return new VetServiceMap();
+    VetMapService vetServiceMap(){
+        return new VetMapService();
     }
 
 }
