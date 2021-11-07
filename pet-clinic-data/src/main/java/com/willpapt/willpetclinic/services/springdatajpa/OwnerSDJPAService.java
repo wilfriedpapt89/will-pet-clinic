@@ -18,7 +18,7 @@ public class OwnerSDJPAService implements OwnerService {
 
     public OwnerSDJPAService(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
-    }
+     }
 
     @Override
     public Set<Owner> findAll() {
