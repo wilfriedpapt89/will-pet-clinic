@@ -2,9 +2,11 @@ package com.willpapt.willpetclinic.services.map;
 
 import com.willpapt.willpetclinic.model.Visit;
 import com.willpapt.willpetclinic.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit,Long> implements VisitService {
 
 

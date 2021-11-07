@@ -1,10 +1,7 @@
 package com.willpapt.willpetclinic.bootstrap;
 
 import com.willpapt.willpetclinic.model.*;
-import com.willpapt.willpetclinic.services.OwnerService;
-import com.willpapt.willpetclinic.services.PetTypeService;
-import com.willpapt.willpetclinic.services.SpecialtysService;
-import com.willpapt.willpetclinic.services.VetService;
+import com.willpapt.willpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtysService specialtysService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtysService specialtysService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtysService specialtysService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtysService = specialtysService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -86,6 +85,12 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(fionaPet)
         ;
         ownerService.save(owner2);
+
+        Visit visit =  new Visit();
+        visit.setPet(fionaPet);
+        visit.setLocalDate(LocalDate.now());
+        visit.setDescription("Sneezy Kitty");
+        visitService.save(visit);
 
         System.out.println("Loaded owners ...");
 
