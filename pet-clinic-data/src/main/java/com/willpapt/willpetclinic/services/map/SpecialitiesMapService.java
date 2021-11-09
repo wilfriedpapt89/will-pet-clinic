@@ -2,11 +2,13 @@ package com.willpapt.willpetclinic.services.map;
 
 import com.willpapt.willpetclinic.model.Speciality;
 import com.willpapt.willpetclinic.services.SpecialtysService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialtysService {
 
     @Override
