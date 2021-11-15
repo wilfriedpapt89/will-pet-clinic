@@ -1,5 +1,7 @@
 package com.willpapt.willpetclinic.model;
 
+import lombok.*;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -9,7 +11,19 @@ import java.util.Set;
 
 @Entity
 @Table(name = "owners")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Owner extends Person{
+
+    @Builder
+    public Owner(String firstName, String lastName, String adress, String city, String telephone, Set<Pet> pets) {
+        super(firstName, lastName);
+        this.adress = adress;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
 
     private String adress;
     private String city;
@@ -17,35 +31,4 @@ public class Owner extends Person{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
-    }
 }

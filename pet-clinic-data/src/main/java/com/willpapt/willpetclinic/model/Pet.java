@@ -1,5 +1,7 @@
 package com.willpapt.willpetclinic.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -7,6 +9,11 @@ import java.util.Set;
 
 @Entity
 @Table(name = "pets")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pet extends NamedEntity{
 
     @ManyToOne
@@ -21,34 +28,4 @@ public class Pet extends NamedEntity{
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
-
-    public PetType getPetType() { return petType; }
-
-    public void setPetType(PetType petType) {
-        this.petType = petType;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public Set<Visit> getVisits() {
-        return visits;
-    }
-
-    public void setVisits(Set<Visit> visits) {
-        this.visits = visits;
-    }
-}
+  }
