@@ -34,10 +34,6 @@ class OwnerSDJPAServiceTest {
 
     Owner returnedOwner = null;
 
-//    public OwnerSDJPAServiceTest() {
-//        ownerSDJPAService = new OwnerSDJPAService(ownerRepository);
-//    }
-
     @BeforeEach
     void setUp() {
         returnedOwner = Owner.builder().id(1L).lastName("Smith").build();
